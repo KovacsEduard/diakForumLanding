@@ -7,6 +7,7 @@ index.html
 style.css
 js/main.js
 img/
+video/
 ```
 
 Statikus oldal, nem igényel buildet vagy telepítést.

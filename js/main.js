@@ -7,5 +7,10 @@
         if(entry.isIntersecting){entry.target.classList.add('lp--latszik');observer.unobserve(entry.target);}
       });
     },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
-    root.querySelectorAll('.lp-szakasz').forEach(function(section){observer.observe(section);});
+    root.querySelectorAll('.lp-szakasz').forEach(function(section){
+      section.querySelectorAll('.lp-funkciok-lista li,.lp-lepesek li,.lp-gyik details').forEach(function(item,index){
+        item.style.setProperty('--lp-keses',Math.min(index*70,420)+'ms');
+      });
+      observer.observe(section);
+    });
   })();

@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DiákFórum — Kérdezz és kérj segítséget</title>
-<meta name="description" content="A Mátészalkai SZC Gépészeti Technikum és Kollégium diákjainak közösségi webalkalmazása. Kérdezz, posztolj és kérj segítséget egy helyen.">
-<meta property="og:title" content="Kérdezz és kérj segítséget a DiákFórumon">
-<meta property="og:description" content="Kérdezz, posztolj és kérj segítséget a DiákFórumon, egy helyen">
+<title>DiákFórum — Regisztrálj vagy jelentkezz be</title>
+<meta name="description" content="A DiákFórum a mátészalkai gépészeti technikum diákjainak készült, és más iskolákra, közösségekre is bővíthető. Regisztrálj ingyen.">
+<meta property="og:title" content="Regisztrálj vagy jelentkezz be a DiákFórumba">
+<meta property="og:description" content="A DiákFórum a mátészalkai gépészeti technikum diákjainak készült, és más iskolákra, közösségekre is bővíthető.">
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <!-- MÉRŐKÓDOK: megadott analitikai kód esetén ide illeszthető. -->
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="lp">
   <header class="lp-fejlec">
-    <a href="#eleje" aria-label="DiákFórum – kezdőlap"><img class="lp-brand" src="img/diakforum-logo.jpg" width="178" height="96" alt="DiákFórum logó"></a>
+    <a class="lp-brand" href="https://kovacseduard.github.io/diakForum/" aria-label="DiákFórum megnyitása">DIÁKFÓRUM</a>
+    <nav class="lp-fejlec-akciok" aria-label="Fiók">
+      <a class="lp-fejlec-belepes" href="https://kovacseduard.github.io/diakForum/login">Bejelentkezem</a>
+      <a class="lp-fejlec-regisztracio" href="https://kovacseduard.github.io/diakForum/register">Regisztrálok</a>
+    </nav>
   </header>
 
   <main id="eleje">
     <section class="lp-hero" aria-labelledby="lp-cim">
       <div class="lp-hero-belseje">
         <div class="lp-hero-szoveg">
-          <h1 id="lp-cim">Kérdezz, posztolj és kérj segítséget a DiákFórumon, egy helyen</h1>
+          <h1 id="lp-cim">Regisztrálj vagy jelentkezz be a DiákFórumba</h1>
           <div class="lp-hero-leiras">
-            <p>A Mátészalkai SZC Gépészeti Technikum és Kollégium diákjainak készült közösségi webalkalmazás. Regisztrálj vagy jelentkezz be, és kérdezz, posztolj vagy kérj segítséget diáktársaidtól.</p>
-            <p>A névvel közzétett segítségkérő posztoknál Messenger-link vezet a kapcsolatfelvételhez. Anonim posztoknál ilyen link nem jelenik meg. Posztolni bejelentkezés után tudsz.</p>
+            <p>A DiákFórumot elsőként a Mátészalkai SZC Gépészeti Technikum és Kollégium diákjainak készítettük. Az alkalmazás más iskolákra és közösségekre is bővíthető. Regisztrálj vagy jelentkezz be, és a posztok főoldalára jutsz.</p>
           </div>
           <div class="lp-hero-akciok">
             <a class="lp-gomb" href="https://kovacseduard.github.io/diakForum/register">Regisztrálok</a>
@@ -42,21 +45,20 @@
 
     <section class="lp-szakasz lp-kerdes" aria-labelledby="lp-kerdes-cim">
       <div class="lp-wrap lp-kerdes-belseje">
-        <h2 id="lp-kerdes-cim">Elakadsz a házival, de nem tudod, kit kérdezz meg?</h2>
+        <h2 id="lp-kerdes-cim">Kérdeznél vagy segítséget kérnél?</h2>
         <div class="lp-kerdes-szoveg">
-          <p class="lp-kiemelt-bekezdes">Van, hogy jól jönne egy diáktárs segítsége, de nem tudod, kihez fordulj. A feladat nem oldódik meg attól, hogy nem tudod, kit kérdezz. A kérdésed válasz nélkül maradhat.</p>
-          <p>A DiákFórumon felteheted a kérdésed. Ha névvel teszed közzé a segítségkérést, a Messenger-linken keresztül vehetik fel veled a kapcsolatot.</p>
+          <p class="lp-kiemelt-bekezdes">Ha elakadsz, nem mindig tudod, kit kérdezz. A DiákFórumon egy helyen tehetsz fel kérdést és kérhetsz segítséget.</p>
         </div>
       </div>
     </section>
 
     <section class="lp-szakasz lp-talald" aria-labelledby="lp-talald-cim">
       <div class="lp-wrap lp-talald-belseje">
-        <h2 id="lp-talald-cim">Találd meg a neked szóló kérdéseket, vagy tedd fel a sajátodat</h2>
+        <h2 id="lp-talald-cim">Nézd át a posztokat, és tedd fel a saját kérdésed</h2>
         <div class="lp-talald-aside">
-          <p>Belépsz, kiválasztod a témát, és átnézed a posztokat. Ha nem találod, amit keresel, írhatsz egy bejegyzést, és segítséget kérhetsz a diákközösségtől.</p>
+          <p>Belépés után válassz témát, szűrj idő vagy problémafajta szerint, vagy írj posztot.</p>
           <figure class="lp-talald-kep">
-            <img src="img/diakforum-wordmark.png" width="1584" height="486" alt="A DiákFórum neve a bagoly kabalával" loading="lazy">
+            <a href="https://kovacseduard.github.io/diakForum/" aria-label="DiákFórum alkalmazás megnyitása"><img src="img/diakforum-matrica.png" width="2000" height="2000" alt="A DiákFórum bagoly emblémája" loading="lazy"></a>
           </figure>
         </div>
       </div>
@@ -66,8 +68,8 @@
       <div class="lp-wrap lp-ajanlat-belseje">
         <h2 id="lp-ajanlat-cim">A DiákFórum ingyenes</h2>
         <div class="lp-ajanlat-szoveg">
-          <p>A DiákFórum egy közösségi webalkalmazás, amelyet a mátészalkai gépészeti technikum diákjainak készítettek.</p>
-          <p>Regisztrálj vagy jelentkezz be, és a posztokat tartalmazó főoldalra jutsz.</p>
+          <p>Regisztrálj vagy jelentkezz be.</p>
+          <p>Belépés után a posztok főoldalára jutsz.</p>
         </div>
       </div>
     </section>
@@ -75,12 +77,8 @@
     <section class="lp-szakasz lp-mechanizmus" aria-labelledby="lp-mechanizmus-cim">
       <div class="lp-wrap lp-mechanizmus-belseje">
         <div class="lp-mechanizmus-fej">
-          <h2 id="lp-mechanizmus-cim">Egy felületen kérdezhetsz, szűrhetsz és kérhetsz segítséget</h2>
-          <p>A posztok közös felületen jelennek meg. Témát választhatsz, majd idő vagy problémafajta szerint szűrhetsz. Névvel közzétett segítségkérésnél Messenger-link vezet a kapcsolatfelvételhez. Anonim posztoknál ez a link nem jelenik meg.</p>
-        </div>
-        <div class="lp-mechanizmus-reszletek">
-          <p>Anonim posztnál a többi felhasználó „Anonim” címkét és álarc matricát lát a neved és a profilképed helyett.</p>
-          <p>Posztolni csak bejelentkezés után lehet, ezért a fejlesztők az adatbázisban látják, ki írta a bejegyzést.</p>
+          <h2 id="lp-mechanizmus-cim">Posztolj, kérj segítséget, jelöld megoldottnak</h2>
+          <p>A posztok egy közös felületen jelennek meg. A posztoló megoldottnak jelölheti a problémáját. A segítségkérő posztoknál Messenger-link vezet a kapcsolatfelvételhez.</p>
         </div>
       </div>
     </section>
@@ -91,29 +89,28 @@
           <h2 id="lp-funkciok-cim">Mit találsz a DiákFórumban?</h2>
         </div>
         <ul class="lp-funkciok-lista">
-          <li>Posztolhatsz, és posztot törölhetsz.</li>
-          <li>Választhatsz témát, majd idő és problémafajta szerint szűrheted a bejegyzéseket.</li>
-          <li>Anonim posztot is írhatsz. A többi felhasználó az álarc matricát látja a profilképed helyett.</li>
-          <li>Névvel közzétett segítségkérő posztoknál Messenger-link vezet a kapcsolatfelvételhez. Anonim posztoknál nincs Messenger-link.</li>
-          <li>Világos és sötét mód közül választhatsz.</li>
-          <li>A posztolásért pontokat kapsz, a ranglistán pedig látod a pontok alapján kialakult helyezéseket.</li>
-          <li>Megváltoztathatod a jelszavad, és kijelentkezhetsz.</li>
+          <li>Regisztrálhatsz a webalkalmazásban, és email-címmel és jelszóval vagy Google-fiókkal jelentkezhetsz be.</li>
+          <li>Bejelentkezés után posztolhatsz és törölheted a posztodat.</li>
+          <li>Témát választhatsz, a bejegyzéseket pedig idő és problémafajta szerint szűrheted.</li>
+          <li>A posztoló megoldottnak jelölheti a problémáját.</li>
+          <li>Segítségkérő posztból Messenger-linken vehetitek fel a kapcsolatot.</li>
+          <li>Válthatsz világos és sötét mód között.</li>
+          <li>Pontokat kapsz a posztolásért, megváltoztathatod a jelszavad, és kijelentkezhetsz.</li>
         </ul>
-        <p class="lp-funkciok-zaro lp-szoveg-keskeny">A belépéshez email-címet és jelszót vagy Google-fiókot használhatsz. Regisztrálni a webalkalmazásban tudsz.</p>
       </div>
     </section>
 
     <section class="lp-szakasz lp-elony" aria-labelledby="lp-elony-cim">
       <div class="lp-wrap lp-elony-belseje">
-        <h2 id="lp-elony-cim">Könnyebben eligazodsz a kérdések között</h2>
-        <p>A témák és szűrők segítenek megtalálni azokat a posztokat, amelyek a problémádhoz kapcsolódnak. Posztoláskor választhatsz anonim megjelenítést. A ranglistán követheted a posztolásért kapott pontjaidat.</p>
+        <h2 id="lp-elony-cim">Találd meg gyorsabban a témádhoz kapcsolódó posztokat</h2>
+        <p>A témák és szűrők segítenek eligazodni a bejegyzések között. Ha a problémád megoldódott, jelöld megoldottnak.</p>
       </div>
     </section>
 
     <section class="lp-szakasz lp-fejlesztok" aria-labelledby="lp-fejlesztok-cim">
       <div class="lp-wrap lp-fejlesztok-belseje">
         <h2 id="lp-fejlesztok-cim">A DiákFórum fejlesztői</h2>
-        <p>Mi, a DiákFórum fejlesztői és ötletgazdái, azért dolgozunk az alkalmazáson, hogy a mátészalkai gépészeti technikum diákjai könnyebben kérdezhessenek és segíthessenek egymásnak.</p>
+        <p>Mi, a DiákFórum fejlesztői és ötletgazdái azért dolgozunk az alkalmazáson, hogy a mátészalkai gépészeti technikum diákjai könnyebben kérdezhessenek és segíthessenek egymásnak.</p>
       </div>
       <img class="lp-fejlesztok-matrica" src="img/diakforum-kabala.png" width="1698" height="926" alt="" loading="lazy">
     </section>
@@ -125,34 +122,32 @@
           <span class="lp-lepesek-vonal" aria-hidden="true"></span>
         </div>
         <ol>
-          <li><p>Regisztrálj, vagy jelentkezz be a DiákFórumba.</p></li>
+          <li><p>Regisztrálj vagy jelentkezz be a webalkalmazásban.</p></li>
           <li><p>A főoldalon nézd át a posztokat, válassz témát, vagy szűrj idő és problémafajta szerint.</p></li>
-          <li><p>Írj posztot vagy segítségkérést. Ha szeretnéd, válaszd az anonim megjelenést. Névvel közzétett segítségkérésnél Messenger-link jelenik meg; anonim posztnál nem.</p></li>
+          <li><p>Írj posztot vagy segítségkérést. Ha megoldódott, jelöld megoldottnak.</p></li>
         </ol>
       </div>
     </section>
 
     <section class="lp-szakasz lp-celcsoport" aria-labelledby="lp-celcsoport-cim">
       <div class="lp-wrap lp-celcsoport-belseje">
-        <h2 id="lp-celcsoport-cim">A mátészalkai gépészeti technikum diákjainak</h2>
-        <p>A DiákFórumot az iskola diákjainak készítették, akik kérdezni, posztolni vagy segítséget kérni szeretnének.</p>
+        <h2 id="lp-celcsoport-cim">Elsőként a mátészalkai gépészeti technikum diákjainak</h2>
+        <p>A DiákFórum más iskolák és közösségek számára is alakítható, hogy a helyi témákhoz és igényekhez igazodjon.</p>
       </div>
     </section>
 
     <section class="lp-szakasz lp-cta" aria-labelledby="lp-cta-cim">
       <div class="lp-wrap lp-cta-belseje">
         <div>
-          <h2 id="lp-cta-cim">Lépj be a DiákFórumba, és tedd fel a kérdésed</h2>
-          <p class="lp-cta-szoveg">A DiákFórum ingyenes. Regisztráció vagy belépés után a posztokat tartalmazó főoldalra jutsz.</p>
+          <h2 id="lp-cta-cim">Regisztrálj vagy jelentkezz be a DiákFórumba</h2>
+          <p class="lp-cta-szoveg">A DiákFórum ingyenes. Belépés után a posztok főoldalára jutsz.</p>
           <div class="lp-cta-gombok">
             <a class="lp-gomb" href="https://kovacseduard.github.io/diakForum/register">Regisztrálok</a>
             <a class="lp-gomb lp-gomb--kek" href="https://kovacseduard.github.io/diakForum/login">Bejelentkezem</a>
           </div>
+          <a class="lp-cta-video" href="video/DiakForum-promo.mp4" target="_blank" rel="noopener">Promóvideó megtekintése <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="lp-figyelmeztetesek">
-          <mark class="lp-kitoltendo">[KITÖLTENDŐ: adatkezelési tájékoztató linkje. Regisztráció előtt közzé kell tenni.]</mark>
-          <mark class="lp-kitoltendo">[KITÖLTENDŐ: a regisztráció jelenleg bárki számára nyitott, miközben az oldal csak az iskola diákjainak szól. A hozzáférési korlátozást az élesítés előtt egyeztetni és beállítani kell.]</mark>
-        </div>
+        <img class="lp-cta-kep" src="img/diakforum-kabala.png" width="1000" height="545" alt="" loading="lazy">
       </div>
     </section>
 
@@ -161,18 +156,15 @@
         <div class="lp-gyik-cim"><h2 id="lp-gyik-cim">Gyakran ismételt kérdések</h2></div>
         <div>
           <details><summary>Ingyenes a DiákFórum?</summary><p>Igen. A használata ingyenes.</p></details>
-          <details><summary>Hogyan tudok belépni?</summary><p>Email-címmel és jelszóval vagy Google-fiókkal. Ha még nincs fiókod, regisztrálj a webalkalmazásban.</p></details>
-          <details><summary>Kell bejelentkeznem a posztoláshoz?</summary><p>Igen. Posztolni csak bejelentkezés után tudsz.</p></details>
-          <details><summary>Mit jelent az anonim poszt?</summary><p>A többi felhasználó „Anonim” címkét és álarc matricát lát, név és profilkép nélkül. A fejlesztők az adatbázisban azonosítani tudják a poszt szerzőjét.</p></details>
-          <details><summary>Hogyan kérhetek segítséget?</summary><p>Írj segítségkérő posztot. Névvel közzétett posztnál Messenger-link jelenik meg; anonim posztnál nincs ilyen link.</p></details>
+          <details><summary>Hogyan tudok regisztrálni vagy belépni?</summary><p>Regisztrálj a webalkalmazásban. Beléphetsz email-címmel és jelszóval vagy Google-fiókkal.</p></details>
+          <details><summary>Kell bejelentkeznem a posztoláshoz?</summary><p>Igen. Posztolni bejelentkezés után tudsz.</p></details>
+          <details><summary>Ki jelölheti megoldottnak a problémát?</summary><p>A posztoló jelölheti megoldottnak a saját problémáját.</p></details>
+          <details><summary>Más iskolákban is használható a DiákFórum?</summary><p>Igen. Elsőként a mátészalkai gépészeti technikum diákjainak készült, de más iskolák és közösségek igényeihez is alakítható.</p></details>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="lp-lablec">
-    <img src="img/diakforum-logo.jpg" width="178" height="96" alt="DiákFórum logó" loading="lazy">
-  </footer>
   <script src="js/main.js" defer></script>
 </div>
 </body>
