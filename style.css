@@ -1,0 +1,73 @@
+ /* Theme tokens matching crisp student light surfaces + optional dark contrast & vibrant energy accents */
+    :root {
+      --bg-page: #f8faff;
+      --bg-surface: #ffffff;
+      --bg-muted: #eef3ff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --border-subtle: #e2e8f0;
+    }
+
+    html.dark {
+      --bg-page: #090d1a;
+      --bg-surface: #11182e;
+      --bg-muted: #182240;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --border-subtle: #25335c;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      overflow-x: hidden;
+    }
+
+    .surface-card {
+      background-color: var(--bg-surface);
+      border-color: var(--border-subtle);
+    }
+
+    .muted-pill {
+      background-color: var(--bg-muted);
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 0.55; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.04); }
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+
+    .animate-pulse-soft {
+      animation: pulseSoft 6s ease-in-out infinite;
+    }
+
+    /* Custom subtle range slider styling */
+    input[type="range"].video-scrubber {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+    }
+
+    input[type="range"].video-scrubber::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #facc15;
+      border: 2px solid #0f172a;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }

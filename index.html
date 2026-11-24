@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiákFórum – A közösség, ami összeköt | Regisztráció</title>
+
+  <!-- Inline SVG Favicon + Brand Asset Icon References -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%232563eb'/%3E%3Cstop offset='100%25' stop-color='%234f46e5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='31' r='17' fill='%23ffffff'/%3E%3Ccircle cx='26' cy='29' r='3.5' fill='%230f172a'/%3E%3Ccircle cx='38' cy='29' r='3.5' fill='%230f172a'/%3E%3Cpath d='M29 34 L35 34 L32 39 Z' fill='%23f59e0b'/%3E%3Cpath d='M18 17 L46 17 L43 11 L21 11 Z' fill='%23facc15' stroke='%230f172a' stroke-width='2'/%3E%3Crect x='22' y='45' width='20' height='7' rx='3.5' fill='%23ef4444'/%3E%3C/svg%3E"
+  />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Inter Font & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.js"></script>
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Announcement / Conversion Strip -->
+  <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white text-xs sm:text-sm font-medium py-2.5 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-center">
+      <span class="inline-flex items-center gap-1.5 bg-yellow-400 text-slate-950 font-extrabold px-2.5 py-0.5 rounded-full text-[11px] uppercase tracking-wider">
+        🏫 Akármelyik iskolában használható
+      </span>
+      <span>Házi, bulik, elveszett cuccok és azonnali Messenger-kapcsolat egy helyen — bárhonnan csatlakozhatsz.</span>
+      <a
+        href="https://kovacseduard.github.io/diakForum"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline decoration-yellow-300 decoration-2 underline-offset-4 font-bold hover:text-yellow-300 transition"
+      >
+        Regisztrálok most →
+      </a>
+    </div>
+  </div>
+
+  <!-- Clean Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-white/85 dark:bg-[#090d1a]/85 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <!-- Brand Logo Lockup -->
+      <a href="#top" class="flex items-center gap-3 min-w-0 group">
+        <div class="w-11 h-11 rounded-2xl overflow-hidden border-2 border-blue-600/20 shadow-sm bg-white flex items-center justify-center shrink-0 group-hover:scale-105 transition">
+          <img
+            src="img/logo.jpg"
+            alt="DiákFórum logó"
+            class="w-full h-full object-cover"
+            onerror="this.onerror=null; this.src='favicon.png';"
+          />
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="font-black text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white truncate">
+              Diák<span class="text-blue-600 dark:text-blue-400">Fórum</span>
+            </span>
+            <span class="hidden md:inline-block text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-400/20 dark:text-amber-300">
+              Est. 2026
+            </span>
+          </div>
+          <p class="text-[11px] font-medium text-slate-500 dark:text-slate-400 truncate">
+            A közösség, ami összeköt.
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-600 dark:text-slate-300">
+        <a href="#gyors-segitseg" class="hover:text-blue-600 dark:hover:text-blue-400 transition">1. Gyors segítség</a>
+        <a href="#azonnali-kapcsolat" class="hover:text-blue-600 dark:hover:text-blue-400 transition">2. Közösség &amp; Chat</a>
+        <a href="#biztonsag-gdpr" class="hover:text-blue-600 dark:hover:text-blue-400 transition">3. Biztonság &amp; GDPR</a>
+        <a href="#promovideo" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Videó &amp; Anyagok</a>
+      </nav>
+
+      <!-- Actions: Theme Toggle + Prominent Register CTA -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <button
+          id="themeToggleBtn"
+          type="button"
+          aria-label="Téma váltása"
+          class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-blue-500 transition cursor-pointer"
+          title="Világos / Sötét kontraszt váltása"
+        >
+          <!-- Sun / Moon SVG -->
+          <svg id="sunIcon" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+          </svg>
+          <svg id="moonIcon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <a
+          href="https://kovacseduard.github.io/diakForum"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-glowBlue transition transform hover:-translate-y-0.5"
+        >
+          <span>Regisztráció</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-24 lg:pt-20 lg:pb-28">
+      <!-- Dynamic Decorative Gradients (Blue / Yellow / Red student energy) -->
+      <div class="pointer-events-none absolute -top-24 -left-24 w-80 h-80 rounded-full bg-blue-500/15 blur-3xl animate-pulse-soft"></div>
+      <div class="pointer-events-none absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-amber-400/15 blur-3xl animate-pulse-soft"></div>
+      <div class="pointer-events-none absolute -bottom-20 left-1/3 w-72 h-72 rounded-full bg-rose-500/10 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Left Copy & Primary Conversion Block -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-3.5 py-1.5 rounded-full border border-blue-200 dark:border-blue-800/60 bg-blue-50/90 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-bold">
+              <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+              <span>Akármelyik iskolában használható • E-mail + jelszó vagy Google-fiók</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl xl:text-6xl font-black tracking-tight leading-[1.08] text-slate-900 dark:text-white">
+              A közösség, ami <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-amber-500 bg-clip-text text-transparent">összeköt</span> — bármelyik iskolában.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Vége a szétszórt csoportchateknek és az elveszett infóknak! Az alkalmazás <strong>akármelyik iskolában azonnal használható</strong>: kérj vagy adj gyors segítséget matekhoz és házikhoz fotóval, böngészd az eseményeket, találd meg az elveszett cuccaidat, és ugorj át <strong class="text-slate-900 dark:text-white font-bold">egy kattintással Messengerre</strong>.
+            </p>
+
+            <!-- Primary Registration CTA + Secondary Video Jump -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-1">
+              <a
+                href="https://kovacseduard.github.io/diakForum"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl font-extrabold text-sm sm:text-base text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 shadow-glowBlue transition transform hover:-translate-y-0.5"
+              >
+                <span>Ingyenes regisztráció az oldalon</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+
+              <a
+                href="#promovideo"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl font-bold text-sm sm:text-base border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 hover:border-amber-400 hover:bg-amber-50/40 dark:hover:bg-slate-800 transition"
+              >
+                <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+                <span>Promóvideó megtekintése</span>
+              </a>
+            </div>
+
+            <!-- Sign-up clarity & universal school compatibility strip -->
+            <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold">✓</span>
+                <span>Gyors belépés <strong>Google-fiókkal</strong> vagy <strong>e-mail + jelszóval</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 font-bold">🏫</span>
+                <span><strong>Akármelyik iskolában</strong> használható — nincs intézményi korlát</span>
+              </div>
+            </div>
+
+            <!-- Direct Target URL Pill + Quick Copy -->
+            <div class="surface-card border rounded-2xl p-3 sm:px-4 flex flex-wrap items-center justify-between gap-2 max-w-xl mx-auto lg:mx-0">
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 min-w-0">
+                <span class="px-2 py-0.5 rounded-md bg-blue-600/10 text-blue-700 dark:text-blue-300 font-bold shrink-0">APP LINK</span>
+                <a
+                  href="https://kovacseduard.github.io/diakForum"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 dark:text-blue-400 font-bold hover:underline truncate"
+                >
+                  https://kovacseduard.github.io/diakForum
+                </a>
+              </div>
+              <button
+                id="copyLinkBtn"
+                type="button"
+                onclick="copyAppUrl()"
+                class="text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-blue-600 hover:text-white text-slate-700 dark:text-slate-200 transition cursor-pointer"
+              >
+                Link másolása
+              </button>
+            </div>
+            <p id="copyFeedback" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hidden"></p>
+          </div>
+
+          <!-- Right Visual Showcase: Generated Community Artwork + Mascot + Brand Wordmark -->
+          <div class="lg:col-span-5 relative">
+            <div class="surface-card border rounded-[2rem] p-5 sm:p-7 shadow-card relative overflow-hidden">
+              <!-- Top Ribbon -->
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400">
+                  <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                  Bármelyik suliban működik
+                </span>
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">2–3 koppintás • Kész is</span>
+              </div>
+
+              <!-- Generated DiákFórum Community Illustration with Fallbacks -->
+              <div class="relative rounded-2xl bg-gradient-to-b from-sky-50 via-blue-50/70 to-amber-50/60 dark:from-slate-900 dark:via-blue-950/50 dark:to-slate-900 p-3 flex items-center justify-center min-h-[270px] sm:min-h-[320px] overflow-hidden">
+                <img
+                  id="heroMascotImg"
+                  src="img/Kabala.png"
+                  alt="DiákFórum iskolai közösség és kabala bagoly"
+                  class="w-full h-64 sm:h-72 object-cover rounded-xl shadow-xl"
+                  onerror="this.onerror=null; this.src='Kabala.png'; this.classList.remove('object-cover'); this.classList.add('object-contain', 'animate-float-slow');"
+                />
+
+                <!-- Custom Generated Hero SVG Illustration (also visible as crisp graphic accent) -->
+                <svg
+                  id="customHeroSvg"
+                  viewBox="0 0 360 240"
+                  class="hidden w-full max-w-xs h-auto"
+                  role="img"
+                  aria-label="DiákFórum közösségi illusztráció"
+                >
+                  <defs>
+                    <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#2563eb" />
+                      <stop offset="100%" stop-color="#4f46e5" />
+                    </linearGradient>
+                    <linearGradient id="sunGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#facc15" />
+                      <stop offset="100%" stop-color="#f59e0b" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="20" y="24" width="320" height="192" rx="24" fill="url(#heroGrad)" opacity="0.12" />
+                  <rect x="44" y="42" width="272" height="156" rx="18" fill="#ffffff" stroke="#dbeafe" stroke-width="2" />
+                  <circle cx="84" cy="76" r="18" fill="url(#sunGrad)" />
+                  <text x="84" y="81" text-anchor="middle" font-size="14" font-weight="900" fill="#0f172a">DF</text>
+                  <rect x="114" y="64" width="160" height="10" rx="5" fill="#2563eb" />
+                  <rect x="114" y="80" width="110" height="8" rx="4" fill="#cbd5e1" />
+                  <rect x="68" y="112" width="104" height="64" rx="12" fill="#eff6ff" />
+                  <text x="120" y="140" text-anchor="middle" font-size="11" font-weight="800" fill="#1d4ed8">HÁZI &amp; MATEK</text>
+                  <text x="120" y="156" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">Fotós segítségkérés</text>
+                  <rect x="184" y="112" width="108" height="64" rx="12" fill="#fefce8" />
+                  <text x="238" y="140" text-anchor="middle" font-size="11" font-weight="800" fill="#b45309">RANG Lista +10</text>
+                  <text x="238" y="156" text-anchor="middle" font-size="10" font-weight="600" fill="#78350f">1-katt Messenger</text>
+                </svg>
+
+                <!-- Floating Badge: Messenger Jump -->
+                <div class="absolute bottom-3 left-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 shadow-md flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                  <span class="text-xs font-extrabold text-slate-800 dark:text-slate-100">1 kattintás → Messenger</span>
+                </div>
+
+                <!-- Floating Badge: Rank -->
+                <div class="absolute top-3 right-3 bg-amber-400 text-slate-950 rounded-xl px-3 py-1.5 shadow-md text-xs font-black">
+                  🏆 Suli Legenda
+                </div>
+              </div>
+
+              <!-- Brand Lockup Image (`DiákFórum.jpg`) -->
+              <div class="mt-4 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 bg-white p-3 flex items-center justify-between gap-3">
+                <img
+                  src="img/logo.jpg"
+                  alt="DiákFórum márkajelzés"
+                  class="h-11 sm:h-12 w-auto object-contain rounded-lg"
+                  onerror="this.onerror=null; this.src='logo.jpg';"
+                />
+                <a
+                  href="https://kovacseduard.github.io/diakForum"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3.5 py-2 rounded-xl bg-slate-900 text-white text-xs font-extrabold hover:bg-blue-600 transition shrink-0"
+                >
+                  Belépés →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== THREE CORE MARKETING SECTIONS ==================== -->
+
+    <!-- SECTION 1: Gyors segítség és mindennapi haszon -->
+    <section id="gyors-segitseg" class="py-16 sm:py-24 border-t border-slate-200/70 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue-600/10 text-blue-700 dark:text-blue-300 mb-3">
+            1. Szekció • Mindennapi haszon
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            Gyors segítség és <span class="text-blue-600 dark:text-blue-400">kézzelfogható haszon</span> minden nap.
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            Nem számít, melyik iskolába jársz — a <strong>DiákFórum akármelyik iskolában azonnal használható</strong>, hogy ne kelljen hosszú köröket futnod. Kérj segítséget a házi feladathoz fotóval, kövesd az eseményeket és programokat, vagy találd meg az elveszett tárgyaidat <strong>2–3 koppintással</strong>, felesleges bonyodalmak nélkül.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <!-- Pillar 1A: Homework & Study Help -->
+          <article class="surface-card border rounded-3xl p-6 sm:p-7 shadow-card flex flex-col justify-between hover:border-blue-500/50 transition">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shadow-md mb-5">
+                <!-- Book / Photo Help SVG -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Házi &amp; tanulási segítség fotóval</h3>
+                <span class="text-xs font-black px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-200">Tanulás</span>
+              </div>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Elakadtál egy másodfokú egyenletnél vagy házinál? Fotózd le a feladatot, válassz kategóriát, és pár koppintással tedd fel a kérdést — egyszerűen, felesleges körök nélkül.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-blue-600 dark:text-blue-400">
+              <span>2–3 koppintásos indítás</span>
+              <span>Képes melléklet támogatás</span>
+            </div>
+          </article>
+
+          <!-- Pillar 1B: School Events & News -->
+          <article class="surface-card border rounded-3xl p-6 sm:p-7 shadow-card flex flex-col justify-between hover:border-amber-500/60 transition">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center shadow-md mb-5">
+                <!-- Calendar / Events SVG -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Iskolai hírek, bulik &amp; programok</h3>
+                <span class="text-xs font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-400/20 dark:text-amber-300">Programok</span>
+              </div>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Ne maradj le semmiről! Egyetlen átlátható felületen követheted az eseményeket, programokat és diákkezdeményezéseket, visszajelzéseket gyűjthetsz, és gyorsan tájékozódhatsz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-700 dark:text-amber-400">
+              <span>Események &amp; infók egy helyen</span>
+              <span>Gyors tájékozódás</span>
+            </div>
+          </article>
+
+          <!-- Pillar 1C: Lost & Found -->
+          <article class="surface-card border rounded-3xl p-6 sm:p-7 shadow-card flex flex-col justify-between hover:border-rose-500/60 transition">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-rose-500 text-white flex items-center justify-center shadow-md mb-5">
+                <!-- Search / Key SVG -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 11A6 6 0 115 11a6 6 0 0112 0z" />
+                </svg>
+              </div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Elveszett és megtalált tárgyak</h3>
+                <span class="text-xs font-black px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 dark:bg-rose-500/20 dark:text-rose-300">Kereső</span>
+              </div>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                Kulcs, kabát, kulacs vagy füzet? Tölts fel fotót a megtalált tárgyról, vagy jelezd, ha elvesztettél valamit — így a közösség tagjai könnyen összekötik a gazdájával.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-rose-600 dark:text-rose-400">
+              <span>Fotós bejegyzések</span>
+              <span>Alacsony küszöbű segítség</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Universal School Compatibility Highlight Banner -->
+        <div class="mt-8 surface-card border border-blue-200/80 dark:border-blue-900/60 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <p class="text-sm font-extrabold text-slate-900 dark:text-white">
+              🏫 Akármelyik iskolában használható — nincs intézményi korlát!
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              A DiákFórum nem egyetlen sulira van korlátozva: bármelyik középiskolából vagy intézményből regisztrálhatsz, és azonnal használhatod osztálytársaiddal és diáktársaiddal.
+            </p>
+          </div>
+          <a
+            href="https://kovacseduard.github.io/diakForum"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-extrabold shrink-0 transition"
+          >
+            Kipróbálom az appot →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Azonnali kapcsolat és közösségi lendület -->
+    <section id="azonnali-kapcsolat" class="py-16 sm:py-24 border-t border-slate-200/70 dark:border-slate-800/70 bg-blue-50/40 dark:bg-slate-900/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-6 space-y-5">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-indigo-600/10 text-indigo-700 dark:text-indigo-300">
+              2. Szekció • Közösség &amp; Lendület
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+              Azonnali kapcsolat és <span class="text-indigo-600 dark:text-indigo-400">közösségi lendület.</span>
+            </h2>
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              A DiákFórum célja egy olyan támogató diákközösség létrehozása, ahol <strong>senki sem marad egyedül a problémáival</strong> — bármelyik suliba is jársz. Egyetlen gombnyomással átugorhatsz <strong>Messengerre</strong> (vagy használhatod a beszélgetési lehetőségeket), miközben pontokkal, ranglistával és egyedi profiltestreszabással teheted még izgalmasabbá a részvételt.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="surface-card border rounded-2xl p-4">
+                <div class="text-sm font-black text-blue-600 dark:text-blue-400 mb-1">1-kattintásos Messenger &amp; Chat</div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  Add meg egyszer a Messenger linkedet a profilodban, és a „Segítek a megoldásban” gombbal azonnal indulhat a párbeszéd — emellett beépített chat és közvetlen kapcsolat is támogatott.
+                </p>
+              </div>
+              <div class="surface-card border rounded-2xl p-4">
+                <div class="text-sm font-black text-amber-600 dark:text-amber-400 mb-1">Ranglista, szintek &amp; +10 pont</div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  Minden új posztért és segítségért lendületet kapsz: lépj feljebb a ranglistán egészen a <strong>Suli Legenda</strong>, <strong>Arany Főnök</strong> és <strong>Top Segítő</strong> szintekig!
+                </p>
+              </div>
+              <div class="surface-card border rounded-2xl p-4">
+                <div class="text-sm font-black text-rose-600 dark:text-rose-400 mb-1">Saját profil &amp; karakter</div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  Testreszabható profilkép és karakter-hangulat, hogy a saját arcodat és stílusodat hozd a diákközösségbe.
+                </p>
+              </div>
+              <div class="surface-card border rounded-2xl p-4">
+                <div class="text-sm font-black text-indigo-600 dark:text-indigo-400 mb-1">Közösség ereje</div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  Nemcsak kérdezhetsz, hanem másoknak is segíthetsz — így épül össze a suli diákjainak mindennapi támogatása.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Rank & Messenger Preview Card -->
+          <div class="lg:col-span-6">
+            <div class="surface-card border rounded-[2rem] p-6 sm:p-8 shadow-card space-y-6">
+              <div class="flex items-center justify-between gap-2">
+                <div>
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Közösségi élmény</span>
+                  <h3 class="text-xl font-black text-slate-900 dark:text-white">Ranglista &amp; Gyors kapcsolat</h3>
+                </div>
+                <span class="px-3 py-1 rounded-full text-xs font-extrabold bg-amber-400 text-slate-950">
+                  +10 pt / poszt
+                </span>
+              </div>
+
+              <!-- Interactive Tab Switcher inside Card -->
+              <div class="flex gap-2 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800/80">
+                <button
+                  id="tabRanksBtn"
+                  type="button"
+                  onclick="switchCommunityTab('ranks')"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-extrabold bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm transition cursor-pointer"
+                >
+                  🏆 Ranglista &amp; Szintek
+                </button>
+                <button
+                  id="tabMessengerBtn"
+                  type="button"
+                  onclick="switchCommunityTab('messenger')"
+                  class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition cursor-pointer"
+                >
+                  💬 Messenger &amp; Chat
+                </button>
+              </div>
+
+              <!-- Ranks Panel -->
+              <div id="panelRanks" class="space-y-3">
+                <div class="flex items-center justify-between p-3.5 rounded-2xl bg-amber-50/90 dark:bg-amber-500/10 border border-amber-200/80 dark:border-amber-500/30">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center">#1</span>
+                    <div>
+                      <div class="text-sm font-extrabold text-slate-900 dark:text-white">Suli Legenda</div>
+                      <div class="text-xs text-slate-600 dark:text-slate-300">Aktív közösségi húzóerő</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-amber-400/30 text-amber-900 dark:text-amber-200">120+ pt</span>
+                </div>
+
+                <div class="flex items-center justify-between p-3.5 rounded-2xl bg-blue-50/80 dark:bg-blue-500/10 border border-blue-200/70 dark:border-blue-500/20">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-blue-600 text-white font-black text-xs flex items-center justify-center">#2</span>
+                    <div>
+                      <div class="text-sm font-extrabold text-slate-900 dark:text-white">Arany Főnök</div>
+                      <div class="text-xs text-slate-600 dark:text-slate-300">Gyors válaszok &amp; hasznos posztok</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-blue-600/15 text-blue-700 dark:text-blue-300">90+ pt</span>
+                </div>
+
+                <div class="flex items-center justify-between p-3.5 rounded-2xl bg-indigo-50/80 dark:bg-indigo-500/10 border border-indigo-200/70 dark:border-indigo-500/20">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center">#3</span>
+                    <div>
+                      <div class="text-sm font-extrabold text-slate-900 dark:text-white">Top Segítő &amp; Aktív Diák</div>
+                      <div class="text-xs text-slate-600 dark:text-slate-300">Szintek, pontok és közösségi elismerés</div>
+                    </div>
+                  </div>
+                  <span class="text-xs font-black px-2.5 py-1 rounded-lg bg-indigo-600/15 text-indigo-700 dark:text-indigo-300">60–89 pt</span>
+                </div>
+              </div>
+
+              <!-- Messenger & Chat Panel -->
+              <div id="panelMessenger" class="hidden space-y-4">
+                <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700 space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-blue-600/15 text-blue-700 dark:text-blue-300">
+                      TANULÁS &amp; KORREPETÁLÁS
+                    </span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400">12 perce</span>
+                  </div>
+                  <p class="text-sm font-bold text-slate-900 dark:text-white">
+                    „A másodfokú egyenletek megoldóképletét nem értem, valaki el tudná magyarázni röviden?”
+                  </p>
+                  <div class="flex items-center justify-between pt-1">
+                    <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">Profilból előtöltött Messenger-link</span>
+                    <span class="inline-flex items-center gap-1.5 text-xs font-extrabold px-3 py-1.5 rounded-xl bg-indigo-600 text-white">
+                      Segítek a megoldásban
+                    </span>
+                  </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  A profilodban beállított Messenger-link automatikusan kitöltésre kerülhet a posztoknál, így egyetlen kattintással indulhat a segítségnyújtás — emellett a beépített chat és a közösségi beszélgetések is támogatottak.
+                </p>
+              </div>
+
+              <a
+                href="https://kovacseduard.github.io/diakForum"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-2xl font-extrabold text-sm bg-slate-900 dark:bg-blue-600 text-white hover:bg-blue-700 transition"
+              >
+                <span>Csatlakozom a közösséghez</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Biztonság, átláthatóság és GDPR-tudatosság -->
+    <section id="biztonsag-gdpr" class="py-16 sm:py-24 border-t border-slate-200/70 dark:border-slate-800/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-12">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 mb-3">
+            3. Szekció • Biztonság &amp; GDPR
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white">
+            Biztonság, átláthatóság és <span class="text-emerald-600 dark:text-emerald-400">GDPR-tudatosság.</span>
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            A DiákFórum a GDPR (EU 2016/679) és az Infotv. elveire építve kezeli az adatokat: csak a működéshez szükséges minimális adatokat kérjük, a kiegészítő elemek önkéntesek, és bármikor kérheted az adataid törlését.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- GDPR Card 1: Mandatory vs Optional -->
+          <div class="surface-card border rounded-3xl p-6 shadow-card">
+            <div class="text-xs font-black uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Adatminimalizálás</div>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Kötelező és önkéntes adatok</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A regisztrációhoz és belépéshez (e-mail + jelszóval vagy Google-fiókkal) <strong>név</strong> és <strong>e-mail cím</strong> szükséges. A <strong>profilkép</strong>, a posztokban lévő <strong>képek</strong> és a <strong>Messenger-link</strong> önkéntes, külön hozzájárulással.
+            </p>
+          </div>
+
+          <!-- GDPR Card 2: Under 16 rule -->
+          <div class="surface-card border rounded-3xl p-6 shadow-card">
+            <div class="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 mb-2">16 év alattiak</div>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Szülői / gondviselői hozzájárulás</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Magyarországon a digitális hozzájárulás korhatára 16 év. <strong>16 év alatti diák</strong> esetén a személyes adatok kezeléséhez a szülő vagy törvényes képviselő hozzájárulása szükséges, amelyet a regisztrációval megerősítetek.
+            </p>
+          </div>
+
+          <!-- GDPR Card 3: Supabase & Security -->
+          <div class="surface-card border rounded-3xl p-6 shadow-card">
+            <div class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-2">Supabase &amp; Védelem</div>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Titkosított kapcsolat &amp; tárhely</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Az adatokat a <strong>Supabase</strong> szolgáltatásában tároljuk HTTPS kapcsolaton keresztül, hashelt jelszavakkal, a fiók aktív fennállásáig — felesleges marketing-megőrzés nélkül.
+            </p>
+          </div>
+
+          <!-- GDPR Card 4: Deletion rights (30 days) -->
+          <div class="surface-card border rounded-3xl p-6 shadow-card">
+            <div class="text-xs font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 mb-2">GDPR 17. cikk</div>
+            <h3 class="text-lg font-extrabold text-slate-900 dark:text-white mb-2">Törlés akár 30 napon belül</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Kérheted fiókod és adataid törlését vagy anonimizálását („Törölt felhasználó”), valamint az önkéntes hozzájárulásod visszavonását. A kérelmeket legkésőbb <strong>30 napon belül</strong> teljesítjük.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Triggers for Full Legal & Deletion Process Docs -->
+        <div class="mt-8 flex flex-wrap items-center gap-3.5">
+          <button
+            type="button"
+            onclick="openDocModal('privacy')"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-extrabold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 hover:border-blue-600 transition cursor-pointer"
+          >
+            <span>📄 Teljes Adatkezelési tájékoztató</span>
+          </button>
+          <button
+            type="button"
+            onclick="openDocModal('deletion')"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-2xl text-xs sm:text-sm font-extrabold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 hover:border-rose-500 transition cursor-pointer"
+          >
+            <span>🗑️ Törlési kérelem kezelése (folyamat)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE PROMO VIDEO & BRAND CAMPAIGN SHOWCASE ==================== -->
+    <section id="promovideo" class="py-16 sm:py-24 border-t border-slate-200/70 dark:border-slate-800/70 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div class="max-w-2xl">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-400/20 text-amber-300 mb-3">
+              Bemutató videó &amp; Kampányanyagok
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              Nézd meg akcióban a <span class="text-amber-400">DiákFórumot</span>!
+            </h2>
+            <p class="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+              Ugorj át közvetlenül a videó kulcsjeleneteire, nézd meg a plakát- és roll-up anyagokat, majd csatlakozz a közösséghez.
+            </p>
+          </div>
+          <a
+            href="https://kovacseduard.github.io/diakForum"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-extrabold text-sm bg-amber-400 text-slate-950 hover:bg-amber-300 transition shrink-0"
+          >
+            <span>Fiók létrehozása most →</span>
+          </a>
+        </div>
+
+        <!-- Video Player Container -->
+        <div class="rounded-[2rem] overflow-hidden border border-slate-700/80 bg-slate-950 shadow-2xl">
+          <div class="relative aspect-video bg-slate-950 flex items-center justify-center">
+            <video
+              id="promoVideoPlayer"
+              class="w-full h-full object-contain bg-black"
+              poster="img/Plakát 16_9.png"
+              preload="metadata"
+              playsinline
+              onerror="handleVideoFallback()"
+            >
+              <source src="img/DiakForum-promo.mp4" type="video/mp4" />
+            </video>
+
+            <!-- Clean Fallback / Poster Overlay if local video asset is unavailable in preview sandbox -->
+            <div
+              id="videoFallbackBanner"
+              class="hidden absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center p-6 text-center"
+            >
+              <img
+                src="img/Plakát 16_9.png"
+                alt="DiákFórum promó plakát"
+                class="max-h-56 sm:max-h-72 rounded-2xl border border-white/15 shadow-xl mb-4 object-contain"
+                onerror="this.style.display='none';"
+              />
+              <p class="text-sm sm:text-base font-bold text-white mb-1">
+                DiakForum-promo.mp4 – Interaktív jelenet-előnézet
+              </p>
+              <p class="text-xs sm:text-sm text-slate-300 max-w-lg mb-4">
+                A jelenetválasztó gombokkal végigkövetheted a promóvideó fő fejezeteit (bevezető, segítségkérés 1 kattintással, Messenger &amp; ranglista).
+              </p>
+              <a
+                href="https://kovacseduard.github.io/diakForum"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-extrabold transition"
+              >
+                Tovább a DiákFórum alkalmazáshoz →
+              </a>
+            </div>
+          </div>
+
+          <!-- Custom Interactive Controls & Chapter Jump Buttons -->
+          <div class="p-4 sm:p-6 bg-slate-900 border-t border-slate-800 space-y-4">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+              <button
+                id="playPauseBtn"
+                type="button"
+                onclick="togglePlayPause()"
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs sm:text-sm font-extrabold transition cursor-pointer"
+              >
+                <span id="playPauseIcon">▶</span>
+                <span id="playPauseLabel">Lejátszás</span>
+              </button>
+
+              <button
+                type="button"
+                onclick="toggleMuteVideo()"
+                class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold transition cursor-pointer"
+              >
+                <span id="muteLabel">🔊 Hang be/ki</span>
+              </button>
+
+              <div class="flex-1 min-w-[160px] flex items-center gap-3">
+                <span id="currentTimeLabel" class="text-xs font-mono text-slate-300">0:00</span>
+                <input
+                  id="videoScrubber"
+                  type="range"
+                  min="0"
+                  max="75"
+                  value="0"
+                  step="0.5"
+                  oninput="scrubVideo(this.value)"
+                  class="video-scrubber w-full"
+                  aria-label="Videó idővonal"
+                />
+                <span id="durationLabel" class="text-xs font-mono text-slate-400">1:15</span>
+              </div>
+            </div>
+
+            <!-- Interactive Scene / Chapter Jump Bar -->
+            <div>
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                Jelenetek gyors ugrása (Interaktív fejezetek):
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onclick="jumpToScene(0, '01. Egy hely, ahol minden diák összeér')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  0:00 • Intro &amp; Probléma
+                </button>
+                <button
+                  type="button"
+                  onclick="jumpToScene(10, '02. Segítség, programok és elveszett tárgyak')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  0:10 • Fő funkciók
+                </button>
+                <button
+                  type="button"
+                  onclick="jumpToScene(22, '03. Probléma megosztása egy kattintással')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  0:22 • Gyors posztolás
+                </button>
+                <button
+                  type="button"
+                  onclick="jumpToScene(32, '04. Telefonon és gépen • Világos & sötét téma')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  0:32 • Mobil &amp; Asztali UI
+                </button>
+                <button
+                  type="button"
+                  onclick="jumpToScene(48, '05. Egy kattintás a Messengerig')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  0:48 • Messenger kapcsolat
+                </button>
+                <button
+                  type="button"
+                  onclick="jumpToScene(61, '06. Ranglista, +10 pont és Suli Legenda')"
+                  class="scene-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-blue-600 text-slate-200 hover:text-white transition cursor-pointer"
+                >
+                  1:01 • Ranglista &amp; Szintek
+                </button>
+              </div>
+              <p id="activeSceneCaption" class="mt-2.5 text-xs font-semibold text-amber-300">
+                Aktív jelenet: 01. Egy hely, ahol minden diák összeér
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FINAL CONVERSION CTA BANNER ==================== -->
+    <section class="py-16 sm:py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-[2.25rem] bg-gradient-to-br from-blue-600 via-indigo-600 to-slate-900 p-8 sm:p-12 lg:p-14 text-white shadow-2xl relative overflow-hidden">
+          <div class="pointer-events-none absolute -right-16 -bottom-16 w-72 h-72 rounded-full bg-amber-400/20 blur-3xl"></div>
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+              <span class="inline-block px-3.5 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+                Akármelyik iskolában használható • Ingyenes regisztráció
+              </span>
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                Készen állsz, hogy ne maradj le semmiről a suliban?
+              </h2>
+              <p class="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto lg:mx-0">
+                Regisztrálj e-mail + jelszóval vagy Google-fiókkal a <strong>DiákFórum</strong> felületén bárhonnan, kérj segítséget percek alatt, és lépd át az akadályokat a diáktársaiddal!
+              </p>
+            </div>
+            <div class="lg:col-span-4 flex flex-col items-center lg:items-end gap-3">
+              <a
+                href="https://kovacseduard.github.io/diakForum"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm sm:text-base shadow-glowAmber transition transform hover:-translate-y-0.5"
+              >
+                <span>Regisztráció indítása</span>
+                <span>→</span>
+              </a>
+              <span class="text-xs text-blue-200 font-medium">
+                Céloldal: kovacseduard.github.io/diakForum
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== CLEAN FOOTER ==================== -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#090d1a] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <img
+          src="img/logo.jpg"
+          alt="DiákFórum"
+          class="w-10 h-10 rounded-xl object-cover border border-slate-200 dark:border-slate-700"
+          onerror="this.onerror=null; this.src='favicon.png';"
+        />
+        <div>
+          <div class="font-black text-sm text-slate-900 dark:text-white">
+            DiákFórum <span class="text-blue-600 dark:text-blue-400">• Est. 2026</span>
+          </div>
+          <div class="text-xs text-slate-500 dark:text-slate-400">
+            Készítette: <strong>Dobos Tibor &amp; Kovács Eduárd</strong> • „A közösség, ami összeköt.”
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300">
+        <a
+          href="https://kovacseduard.github.io/diakForum"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition"
+        >
+          Alkalmazás / Regisztráció
+        </a>
+        <button
+          type="button"
+          onclick="openDocModal('privacy')"
+          class="hover:text-blue-600 dark:hover:text-blue-400 transition cursor-pointer"
+        >
+          Adatkezelési tájékoztató
+        </button>
+        <button
+          type="button"
+          onclick="openDocModal('deletion')"
+          class="hover:text-rose-600 dark:hover:text-rose-400 transition cursor-pointer"
+        >
+          Törlési kérelem kezelése
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LEGAL & DELETION MODAL VIEWER ==================== -->
+  <div
+    id="docModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="docModalTitle"
+  >
+    <div class="surface-card border rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4">
+        <h3 id="docModalTitle" class="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
+          Dokumentum
+        </h3>
+        <button
+          type="button"
+          onclick="closeDocModal()"
+          aria-label="Bezárás"
+          class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-rose-500 hover:text-white font-bold flex items-center justify-center transition cursor-pointer"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div id="docModalBody" class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+      <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3 bg-slate-50/60 dark:bg-slate-900/60">
+        <a
+          href="https://kovacseduard.github.io/diakForum"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs font-extrabold text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Tovább a DiákFórum oldalra →
+        </a>
+        <button
+          type="button"
+          onclick="closeDocModal()"
+          class="px-5 py-2 rounded-xl bg-slate-900 dark:bg-blue-600 text-white text-xs font-extrabold hover:opacity-90 transition cursor-pointer"
+        >
+          Bezárás
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
